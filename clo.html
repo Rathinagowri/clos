@@ -1,0 +1,53 @@
+<html>
+<script>
+ function add()
+{
+      var ai = document.getElementById("availableItems");
+      var si = document.getElementById("selectedItems");
+
+ function addItems() {
+        for (i=0;i<ai.options.length;i++) {
+        if (ai.options[i].selected) {
+          var opt = ai.options[i];
+          si.options[si.options.length] = new Option(opt.innerHTML, opt.value);
+          ai.options[i] = null;
+          i = i - 1;
+        }
+      }
+    }
+addItems();
+function moveItems() {
+            for (i=0;i<si.options.length;i++) {
+        if (si.options[i].selected) {
+          var opt = si.options[i];
+          ai.options[ai.options.length] = new Option(opt.innerHTML, opt.value);
+          si.options[i] = null;
+          i = i - 1;
+        }
+      }
+    }
+moveItems();
+
+}
+
+
+
+</script>
+<select id='availableItems' size='10'>
+  <option value='0'>java</option>
+  <option value='1'>js</option>
+  <option value='2'>vb</option>
+  <option value='3'>html</option>
+  <option value='4'>Angular</option>
+</select>
+<select id='selectedItems' size='10'>
+
+  <option> </option>
+  <option> </option>
+  <option> </option>
+  <option> </option>
+  <option value='5'> bootstrap</option>
+</select>
+<input type =button value=">" onclick="add();">
+<input type =button value="<" onclick="add();">
+</html>
